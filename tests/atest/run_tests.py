@@ -19,4 +19,4 @@ if __name__ == '__main__':
     elif is_linux():
         tag = 'linux'
 
-run_cli(sys.argv[1:] + ['--include', tag, '.'])
+run_cli(sys.argv[1:] + ['-L', 'trace', '--include', tag, '.'])

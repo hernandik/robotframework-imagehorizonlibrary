@@ -6,6 +6,10 @@ This Robot Framework library provides the facilities to automate GUIs based on
 image recognition similar to Sikuli. This library wraps pyautogui_ to achieve
 this.
 
+This fork supports only python +3.7
+
+All tests are, 'atests' and 'utests ' are passing in this version.
+
 Keyword documentation
 ---------------------
 
@@ -28,9 +32,13 @@ __ https://travis-ci.org/Eficode/robotframework-imagehorizonlibrary/
 Prerequisites
 -------------
 
-- `Python 2.7+`_ (unfortunately not 3.x)
+- `Python 3.7+`_
+    - unfortunately not 2.x.
+    - Look at https://github.com/eficode/robotframework-imagehorizonlibrary for `Python 2.0+`_ support
 - pip_ for easy installation
 - pyautogui_ and `it's prerequisites`_
+- pyscreeze
+- tk
 - `Robot Framework`_
 
 On OS X, Retina display might `double all coordinates`_ from what they are
@@ -124,6 +132,7 @@ and
 
 
 .. _Python 2.7+: http://python.org
+.. _Python 3.7+: http://python.org
 .. _pip: https://pypi.python.org/pypi/pip
 .. _pyautogui: https://github.com/asweigart/pyautogui
 .. _it's prerequisites: https://pyautogui.readthedocs.org/en/latest/install.html

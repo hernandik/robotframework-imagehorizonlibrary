@@ -5,7 +5,8 @@ from setuptools import setup
 CURDIR = abspath(dirname(__file__))
 
 # get VERSION number
-execfile('src/ImageHorizonLibrary/version.py')
+filename = 'src/ImageHorizonLibrary/version.py'
+exec(open(filename).read())
 
 KEYWORDS = ('imagerecognition gui robotframework testing testautomation '
             'acceptancetesting atdd bdd')
@@ -18,7 +19,7 @@ with open(path_join(CURDIR, 'README.rst'), 'r') as readme:
 
 CLASSIFIERS = '''
 Development Status :: 5 - Production/Stable
-Programming Language :: Python :: 2 :: Only
+Programming Language :: Python :: 3.7
 Operating System :: OS Independent
 Topic :: Software Development :: Testing
 License :: OSI Approved :: MIT License

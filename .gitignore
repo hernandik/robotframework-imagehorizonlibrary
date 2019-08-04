@@ -6,3 +6,6 @@ log.html
 *-screenshot-*.png
 *\$py.class
 *.swp
+build/
+dist/
+src/robotframework_imagehorizonlibrary.egg-info/

@@ -8,6 +8,9 @@ from mock import call, MagicMock, patch
 CURDIR = abspath(dirname(__file__))
 TESTIMG_DIR = path_join(CURDIR, 'reference_images')
 
+from platform import platform, architecture
+
+PLATFORM = platform()
 
 class TestRecognizeImages(TestCase):
     def setUp(self):
@@ -123,16 +126,17 @@ class TestRecognizeImages(TestCase):
             self.lib.set_reference_folder(path_join(CURDIR, ref))
             self._verify_path_works(img, 'my_picture.png')
 
-        self.lib.reference_folder = path_join(CURDIR, 'symbolic_link')
-        self.lib.locate('mY_PiCtURe')
-        expected_path = path_join(CURDIR, 'symbolic_link', 'my_picture.png')
-        self.mock.locateCenterOnScreen.assert_called_once_with(expected_path)
-        self.mock.reset_mock()
+        if not PLATFORM.lower().startswith('windows'):
+            self.lib.reference_folder = path_join(CURDIR, 'symbolic_link')
+            self.lib.locate('mY_PiCtURe')
+            expected_path = path_join(CURDIR, 'symbolic_link', 'my_picture.png')
+            self.mock.locateCenterOnScreen.assert_called_once_with(expected_path)
+            self.mock.reset_mock()
 
         self.lib.reference_folder = path_join(CURDIR, u'rëförence_imägës')
         self.lib.locate(u'mŸ PäKSÖR')
         expected_path = path_join(CURDIR, u'rëförence_imägës',
-                                  u'mÿ_päksör.png').encode('utf-8')
+                                  u'mÿ_päksör.png')
         self.mock.locateCenterOnScreen.assert_called_once_with(expected_path)
         self.mock.reset_mock()
 

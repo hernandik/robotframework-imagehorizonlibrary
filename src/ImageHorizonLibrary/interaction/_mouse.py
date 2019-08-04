@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import pyautogui as ag
 
-from ..errors import MouseException
+from ImageHorizonLibrary.errors import MouseException
 
 
 class _Mouse(object):
